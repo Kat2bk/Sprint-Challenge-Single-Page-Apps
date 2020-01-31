@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import CharacterCard from "./CharacterCard";
+import SearchForm from "./SearchForm";
 
 
 export default function CharacterList() {
@@ -24,26 +25,11 @@ export default function CharacterList() {
     getCharacters();
   }, [query]);
 
-  const handleInputChange = event => {
-    setQuery(event.target.value);
-  };
-
-  // <div className="form-box">
-  // <form className="search">
-  //   <input
-  //     type="text"
-  //     onChange={handleInputChange}
-  //     value={query}
-  //     name="name"
-  //     tabIndex="0"
-  //     className="search-name"
-  //     placeholder="search by name"
-  //   />
-  // </form>
-  // </div>
+  // const handleInputChange = event => {
+  //   setQuery(event.target.value);
+  // };
 
   return (
-
     <section className="character-list">
       {data.map(item => (
         <CharacterCard key={item.id} data={item} />
