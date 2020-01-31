@@ -1,13 +1,17 @@
 import React from "react";
 import { Card, CardTitle, CardText } from 'reactstrap';
-import 'bootstrap/dist/css/bootstrap.css';
 
 export default function CharacterCard(props) {
   return (
-      <Card body inverse style={{ backgroundColor: 'primary', borderColor: '#333' }}>
-        <CardTitle>Name:</CardTitle>
+    <div className="card">
+    <Card body inverse color="warning">
+      <Card body inverse color="danger">
+        <CardTitle className="name">Name:</CardTitle>
     <CardText>{props.data.name}</CardText>
-    <CardText>Species: {props.data.species}</CardText>
+    <CardTitle className="species">Species:</CardTitle>
+    <CardText>{props.data.species}</CardText>
     </Card>
+    </Card>
+    </div>
   )
 }
