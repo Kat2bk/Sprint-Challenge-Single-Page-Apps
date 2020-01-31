@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import CharacterCard from "./CharacterCard";
+
 
 export default function CharacterList() {
  const [data, setData] = useState([]);
@@ -8,8 +10,8 @@ export default function CharacterList() {
     const getCharacters = () => {
     axios.get(`https://rickandmortyapi.com/api/character/`)
     .then(response => {
-      console.log("axios call", response);
-      setData(response.data);
+      console.log("axios call", response.data.results);
+      setData(response.data.results);
     })
     .catch(error => {
       console.log("server error", error);
@@ -20,7 +22,9 @@ export default function CharacterList() {
 
   return (
     <section className="character-list">
-      <h2>TODO: `array.map()` over your state here!</h2>
+      {data.map(item => (
+        <CharacterCard key={item.id} data={item} />
+      ))}
     </section>
   );
 }
