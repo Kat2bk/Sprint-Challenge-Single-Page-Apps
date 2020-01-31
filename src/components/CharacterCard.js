@@ -1,10 +1,13 @@
 import React from "react";
+import { Card, CardTitle, CardText } from 'reactstrap';
+import 'bootstrap/dist/css/bootstrap.css';
 
 export default function CharacterCard(props) {
   return (
-  <span>
-    <h3>Name: {props.data.name}</h3>
-    <h3>Species: {props.data.species}</h3>
-  </span>
+      <Card body inverse style={{ backgroundColor: 'primary', borderColor: '#333' }}>
+        <CardTitle>Name:</CardTitle>
+    <CardText>{props.data.name}</CardText>
+    <CardText>Species: {props.data.species}</CardText>
+    </Card>
   )
 }
